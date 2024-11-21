@@ -16,12 +16,13 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
         <GridContainer cols={12}>
 
           <div className=" col-span-2 bg-red-600 min-h-screen ">
-Alhaaa
+            {/*Sidenav component */}
           </div>
 
           <div className=" col-span-10 bg-green-600 min-h-screen ">
+            {/*navbar*/}
           {children}
-          Brooom
+          {/*footer*/}
           </div>
 
         </GridContainer>
