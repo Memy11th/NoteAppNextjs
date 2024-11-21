@@ -1,13 +1,19 @@
-import { Icon } from 'next/dist/lib/metadata/types/metadata-types'
+'use client'
+import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import React from 'react'
-const SidenavItems = ({item}: {item:{name:string,pathname:string,Icon:Icon}}) => {
-    const {name,pathname,Icon} = item
+const SidenavItems = ({item}: {item:{name:string,pathname:string,Icon:React.ReactNode}}) => {
+    // destructing the passed item 
+    const {name,pathname,Icon} = item;
+    // getting the active path
     const activePathname = usePathname();
+    // checking if the current path is active
     const isActive = activePathname === pathname;
-    return <>
-    
-    </>
-}
+    return (
+    <Link href={pathname} className={`flex gap-2 items-center p-2 hover:bg-gray-300/35 rounded-md ${isActive ? 'bg-gray-300' : ''}`} >
+        {Icon}
+        <p>{name}</p> 
+    </Link>
+)}
 
 export default SidenavItems
