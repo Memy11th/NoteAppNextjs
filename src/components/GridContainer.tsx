@@ -17,7 +17,7 @@
     }[cols];
 
     return (
-        <div className={`grid ${gridClasses} gap-1  `}>
+        <div className={`grid ${gridClasses} gap-2  `}>
         {children}
         </div>
     );

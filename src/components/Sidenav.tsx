@@ -27,12 +27,14 @@ const sidenavItems = [
 // The sidenav component
 const Sidenav = () => {
     return <>
-    <div className=' md:col-span-2 md:flex hidden md:flex-col justify-center items-center gap-3 min-h-screen bg-red-800'>
+    <div className=' md:flex md:flex-col items-center bg-green-800 hidden md:col-span-2 rounded-lg  '>
+
+        <div className='flex flex-col gap-8 sticky  inset-0 bg-red-700  items-center justify-around  '>
         <ThemeSwitcher />
-    {sidenavItems.map((item , index)=> <SidenavItems key={index} item={item} />
-    )}
-
-
+        <div className='flex flex-col gap-8  '>
+        {sidenavItems.map((item , index)=> <SidenavItems key={index} item={item} />)}
+        </div>
+        </div>
     </div>
     </>
 }
