@@ -20,7 +20,7 @@ const sidenavItems = [
     },
     {
         name:'Logout',
-        pathname:'/register',
+        pathname:'/login',
         Icon:<BiLogOut />
     }
 ]

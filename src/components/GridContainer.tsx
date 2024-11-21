@@ -1,6 +1,6 @@
     import React from 'react';
 
-    export default function GridContainer({cols,children,}: {cols: number;children: React.ReactNode}) {
+    export default function GridContainer({cols,children, customStyling}: {cols: number;children: React.ReactNode,customStyling?:string}) {
     const gridClasses = {
         1: 'grid-cols-1',
         2: 'grid-cols-2',
@@ -17,7 +17,7 @@
     }[cols];
 
     return (
-        <div className={`grid ${gridClasses} gap-2  `}>
+        <div className={`grid ${gridClasses} gap-2 ${customStyling} `}>
         {children}
         </div>
     );
