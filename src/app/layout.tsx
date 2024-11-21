@@ -22,7 +22,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
             {/*Sidenav component */}
             <Sidenav />
 
-          <div className=" col-span-12 md:col-span-10 bg-green-600 min-h-screen ">
+          <div className=" col-span-12 md:col-span-10 bg-green-600 min-h-screen  rounded-lg">
             {/*navbar*/}
             <Navbar />
           {children}
