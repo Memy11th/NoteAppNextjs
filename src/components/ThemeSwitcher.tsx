@@ -1,14 +1,12 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 const ThemeSwitcher = () => {
-    const [isMounted,setIsMounted] = useState(false);
-
-    useEffect(()=>{
-        setIsMounted(true)
-    },[isMounted]);
+    
 
     return <>
+
+    
     
     </>
 }
