@@ -3,6 +3,7 @@ import "./globals.css";
 import GridContainer from "@/components/GridContainer";
 import Sidenav from "@/components/Sidenav";
 import Navbar from "@/components/Navbar";
+import ThemeProv from "@/Providers/ThemeProvider";
 
 
 
@@ -15,6 +16,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="en">
       <body className='min-h-screen w-full'>
+        <ThemeProv>
         <GridContainer cols={12}>
 
             {/*Sidenav component */}
@@ -28,7 +30,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
           </div>
 
         </GridContainer>
-        
+        </ThemeProv>
       </body>
     </html>
   );
