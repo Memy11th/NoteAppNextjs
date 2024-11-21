@@ -4,13 +4,13 @@ import ButtonLink from './Button'
 
 const Navbar = () => {
     return <>
-    <GridContainer cols={12} customStyling={'bg-black mx-1'}>
-        <div className=' bg-black col-span-9 flex justify-center items-center sticky top-0 left-0 right-0  rounded-xl'>
-        <h5 className='p-2  text-white text-xl font-bold  '>Notes App</h5>
+    <GridContainer cols={12} customStyling={' mx-1'}>
+        <div className='  col-span-9 flex justify-center items-center sticky top-0 left-0 right-0  rounded-xl'>
+        <h5 className='p-2   text-xl font-bold  '>Notes App</h5>
     </div>
-    <div className='flex justify-between items-center col-span-3 gap-3 '>
-        <ButtonLink href={'/register'} name={'Register'} className={'bg-red-700 p-2 text-center '} />
-        <ButtonLink href={'/login'} name={'Login'} className={'bg-yellow-700 p-2 text-center '} />
+    <div className='flex justify-around items-center col-span-3 gap-3 '>
+        <ButtonLink href={'/register'} name={'Register'} className={' p-2 text-center rounded-xl w-1/3 '} />
+        <ButtonLink href={'/login'} name={'Login'} className={' p-2 text-center rounded-xl w-1/3 '} />
     </div>
 
     </GridContainer>
