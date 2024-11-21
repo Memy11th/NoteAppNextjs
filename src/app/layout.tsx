@@ -4,6 +4,7 @@ import GridContainer from "@/components/GridContainer";
 import Sidenav from "@/components/Sidenav";
 import Navbar from "@/components/Navbar";
 import ThemeProv from "@/Providers/ThemeProvider";
+import ProgressBar from "@/components/ProgressBar";
 
 
 
@@ -17,12 +18,14 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     <html lang="en">
       <body className='min-h-screen w-full'>
         <ThemeProv>
+          
         <GridContainer cols={12}>
 
             {/*Sidenav component */}
             <Sidenav />
 
           <div className=" col-span-12 md:col-span-10 bg-green-600 min-h-screen  rounded-lg">
+          <ProgressBar/>
             {/*navbar*/}
             <Navbar />
           {children}
