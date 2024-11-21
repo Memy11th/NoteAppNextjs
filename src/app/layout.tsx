@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import GridContainer from "@/components/GridContainer";
 import Sidenav from "@/components/Sidenav";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -21,6 +22,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
 
           <div className=" col-span-12 md:col-span-10 bg-green-600 min-h-screen ">
             {/*navbar*/}
+            <Navbar />
           {children}
           {/*footer*/}
           </div>
