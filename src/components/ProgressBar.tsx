@@ -2,8 +2,9 @@
 import React from 'react'
 
 const ProgressBar = () => {
-    const [Progress,setProgress] = React.useState(0)
+    const [Progress,setProgress] = React.useState(0);
     const handleScroll = () => {
+        // a function to get the total height of the document to be scrolled and the vertical scroll to get the percentage
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPosition = window.scrollY;
         const progress = (scrollPosition / totalHeight) * 100;
@@ -15,14 +16,12 @@ const ProgressBar = () => {
         return () => {    
         window.removeEventListener('scroll', handleScroll);
         }
-    }, [])
+    },[]);
     return <>
+                <div className="h-[4px] w-full bg-gray-300 sticky top-0 left-0 right-0 ">
+                    <div style={{ width: `${Progress}%` }} className="h-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500  transition-all duration-300"></div>
+                </div>
+            </>
+    };
 
-<div className="h-[4px] w-full bg-gray-300 sticky top-0 left-0 right-0 ">
-  <div style={{ width: `${Progress}%` }} className="h-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500  transition-all duration-300"></div>
-</div>
-    
-    </>
-}
-
-export default ProgressBar
+    export default ProgressBar
