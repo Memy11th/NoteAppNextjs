@@ -27,7 +27,7 @@ const FormInputs = [
     },
     {
         type:'text',
-        name:'Phone',
+        name:'phone',
         placeholder:'Enter your phone num'
     }
 ]
@@ -73,7 +73,7 @@ const Signup = () => {
                 touched={formik.touched[input.name as keyof typeof formik.touched]}
             />
             ))}
-    <button type="submit">Submit</button>
+    <button type="submit"  >Submit</button>
     </form>
 
     </div>
