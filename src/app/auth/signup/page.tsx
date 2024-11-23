@@ -39,7 +39,11 @@ const Signup = () => {
     };
     // the validation schema using yup for better , cleaner and readable validation and easy to read and understand
     const validationSchema = yup.object({
-        
+        name:yup.string().required('Name is required').min(2,'name is too short').max(50,'name is too long'),
+        email:yup.string().required('Email is required').email('Invalid email'),
+        password:yup.string().required('Password is required').min(8,'Password is too short').max(50,'Password is too long'),
+        age:yup.string().required('Age is required').min(2,'Age is too short').max(3,'Age is too long'),
+        phone:yup.string().required('Phone is required').min(10,'Phone is too short').max(15,'Phone is too long'),
     })
     // formik object for form handling
     const formik = useFormik({
@@ -66,6 +70,7 @@ const Signup = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 FormikError={formik.errors[input.name as keyof typeof formik.errors] as string | undefined}
+                touched={formik.touched[input.name as keyof typeof formik.touched]}
             />
             ))}
     <button type="submit">Submit</button>
