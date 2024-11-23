@@ -1,4 +1,5 @@
 'use client'
+import { signup } from '@/Api/Api'
 import FormInput from '@/components/FormComponent'
 import { SignUpForm } from '@/interfaces/SignupForm'
 import { useFormik } from 'formik'
@@ -31,12 +32,13 @@ const FormInputs = [
         placeholder:'Enter your phone num'
     }
 ]
-const Signup = () => {
 
     // a function that recieves the formik values and handle the submit action
-    const handleSubmit = (formikValues :SignUpForm) => {
-        console.log(formikValues);
-    };
+    const Signup = () => {
+        // Async function to handle form submission
+        const handleSubmit =  (formikValues: SignUpForm) => {
+            console.log(formikValues)
+        };
     // the validation schema using yup for better , cleaner and readable validation and easy to read and understand
     const validationSchema = yup.object({
         name:yup.string().required('Name is required').min(2,'name is too short').max(50,'name is too long'),
