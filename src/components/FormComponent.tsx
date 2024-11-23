@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormInput = ({name,value,type,placeholder,onChange,onBlur,FormikError}:{FormikError:string,name:string,value:string,type:string,placeholder:string,onChange:void,onBlur:void}) => {
+const FormInput = ({name,value,type,placeholder,onChange,onBlur,FormikError}:{FormikError?:string|undefined,name:string,value:string,type:string,placeholder:string,onChange:(event: React.ChangeEvent<HTMLInputElement>) => void,onBlur:(event: React.FocusEvent<HTMLInputElement>) => void}) => {
     return <>
         <label htmlFor={name}></label>
         <input className='' type={type}  placeholder={placeholder} id={name} name={name} value={value} onChange={onChange} onBlur={onBlur}/>

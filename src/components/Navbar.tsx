@@ -9,7 +9,7 @@ const Navbar = () => {
         <h5 className='p-2   text-xl font-bold  '>Notes App</h5>
     </div>
     <div className='flex justify-around items-center col-span-3 gap-3 '>
-        <ButtonLink href={'/register'} name={'Register'} className={' p-2 text-center rounded-xl w-1/3 '} />
+        <ButtonLink href={'/auth'} name={'Register'} className={' p-2 text-center rounded-xl w-1/3 '} />
         <ButtonLink href={'/login'} name={'Login'} className={' p-2 text-center rounded-xl w-1/3 '} />
     </div>
 
