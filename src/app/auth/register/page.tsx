@@ -1,10 +1,13 @@
 'use client'
-import { signup } from '@/Api/Api'
+import { handleSignup } from '@/Api/Api'
 import FormInput from '@/components/FormComponent'
 import { SignUpForm } from '@/interfaces/SignupForm'
 import { useFormik } from 'formik'
+import { useRouter } from 'next/router'
 import React from 'react'
 import * as yup from 'yup'
+
+
 const FormInputs = [
     {
         type:'text',
@@ -35,9 +38,20 @@ const FormInputs = [
 
     // a function that recieves the formik values and handle the submit action
     const Signup = () => {
+        const router = useRouter();
         // Async function to handle form submission
-        const handleSubmit =  (formikValues: SignUpForm) => {
-            console.log(formikValues)
+        const handleSubmit = async (formikValues: SignUpForm) => {
+            console.log(formikValues);
+            try {
+                const res = await handleSignup(formikValues);
+                console.log(res);
+                router.replace('auth/login')
+                
+            } catch (error) {
+                console.error('Error signing up:', error);
+            }
+            
+            
         };
     // the validation schema using yup for better , cleaner and readable validation and easy to read and understand
     const validationSchema = yup.object({
