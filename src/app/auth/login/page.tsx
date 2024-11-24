@@ -1,8 +1,10 @@
 'use client'
+import { handleLogin } from '@/Api/Api'
+import FormInput from '@/components/FormComponent'
 import { useFormik } from 'formik'
 import React from 'react'
 import * as yup from 'yup'
-interface LoginForm{
+export interface LoginForm{
     email:string,
     password:string,
 }
@@ -20,8 +22,13 @@ const LoginItems = [
     }
 ]
 const Login = () => {
-    const handleSubmit = (formikValues:LoginForm) => {
-        console.log(formikValues)
+    const handleSubmit = async (formikValues:LoginForm) => {
+        try {
+            const res = await handleLogin(formikValues);
+            console.log('Login succeded :' , res);
+        } catch (error) {
+            console.error('Login failed : ' , error)
+        }
     }
     const validationSchema = yup.object({
         email:yup.string().required('Email is required').email('Invalid email'),
@@ -39,14 +46,30 @@ const Login = () => {
 
 
     return <>
-    <div className='min-h-screen'>
-
-        <form onSubmit={formik.handleSubmit}>
-
-
+        <div className="min-h-screen flex  items-center justify-center bg-gray-100">
+        <form
+            onSubmit={formik.handleSubmit}
+            className="w-full max-w-sm p-4 flex flex-col items-start justify-center bg-white shadow-md rounded-lg space-y-4"
+        >
+            {LoginItems.map((item, index) => (
+            <FormInput
+                key={index}
+                {...item}
+                FormikError={formik.errors[item.name as keyof typeof formik.errors] as string | undefined}
+                touched={formik.touched[item.name as keyof typeof formik.touched]}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values[item.name as keyof typeof formik.values]}
+            />
+            ))}
+            <button
+            type="submit"
+            className="w-full py-2 px-4 bg-blue-600 text-white font-bold rounded hover:bg-blue-700"
+            >
+            Login
+            </button>
         </form>
-
-    </div>
+        </div>
     </>
 }
 
