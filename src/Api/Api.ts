@@ -30,6 +30,8 @@ export const handleLogin = async(formikValues:LoginForm)=>{
     return data
 };
 
+
+// function to get all notes for all users 
 export const getallNotes = async(token:string)=>{
   const res = await fetch('https://note-sigma-black.vercel.app/api/v1/notes/allNotes',{
     method:'GET',
