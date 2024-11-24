@@ -3,7 +3,7 @@ import { handleSignup } from '@/Api/Api'
 import FormInput from '@/components/FormComponent'
 import { SignUpForm } from '@/interfaces/SignupForm'
 import { useFormik } from 'formik'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import * as yup from 'yup'
 
@@ -45,7 +45,7 @@ const FormInputs = [
             try {
                 const res = await handleSignup(formikValues);
                 console.log(res);
-                router.replace('auth/login')
+                router.push('auth/login')
                 
             } catch (error) {
                 console.error('Error signing up:', error);
