@@ -3,6 +3,7 @@ import { handleSignup } from '@/Api/Api'
 import FormInput from '@/components/FormComponent'
 import { SignUpForm } from '@/interfaces/SignupForm'
 import { useFormik } from 'formik'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import React from 'react'
 import * as yup from 'yup'
@@ -22,7 +23,7 @@ const FormInputs = [
     {
         type:'password',
         name:'password',
-        placeholder:'password',
+        placeholder:'Enter your password',
     },
     {
         type:'text',
@@ -90,6 +91,8 @@ const FormInputs = [
             />
             ))}
     <button type="submit"  >Submit</button>
+    <h5 className='text-blue-500'>Already signed up ? <Link className='underline' href={'/auth/login'}>Login now</Link></h5>
+
     </form>
 
     </div>

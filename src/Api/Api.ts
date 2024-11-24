@@ -19,7 +19,7 @@ export const handleSignup = async(formikValues:SignUpForm)=>{
 
 //login function 
 export const handleLogin = async(formikValues:LoginForm)=>{
-  const res = await fetch('https://note-sigma-black.vercel.app/api/v1/users/login',{
+  const res = await fetch('https://note-sigma-black.vercel.app/api/v1/users/signIn',{
     method:'POST',
     body:JSON.stringify(formikValues),
     headers:{

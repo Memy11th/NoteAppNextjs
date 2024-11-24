@@ -2,6 +2,8 @@
 import { handleLogin } from '@/Api/Api'
 import FormInput from '@/components/FormComponent'
 import { useFormik } from 'formik'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import * as yup from 'yup'
 export interface LoginForm{
@@ -18,14 +20,18 @@ const LoginItems = [
     {
         type:'password',
         name:'password',
-        placeholder:'password'
+        placeholder:'Enter your password'
     }
 ]
 const Login = () => {
+    const router = useRouter();
     const handleSubmit = async (formikValues:LoginForm) => {
         try {
             const res = await handleLogin(formikValues);
             console.log('Login succeded :' , res);
+            localStorage.setItem('token' , res.token);
+            router.replace('/');
+
         } catch (error) {
             console.error('Login failed : ' , error)
         }
@@ -68,6 +74,7 @@ const Login = () => {
             >
             Login
             </button>
+            <h5 className='text-blue-500 '>Already have an account ? <Link className='underline' href={'/auth/register'}>Register now</Link></h5>
         </form>
         </div>
     </>

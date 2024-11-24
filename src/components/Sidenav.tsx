@@ -20,14 +20,14 @@ const sidenavItems = [
     },
     {
         name:'Logout',
-        pathname:'/login',
+        pathname:'/auth/login',
         Icon:<BiLogOut />
     }
 ]
 // The sidenav component
 const Sidenav = () => {
     return <>
-    <div className=' md:flex md:flex-col items-center hidden md:col-span-2 rounded-lg  '>
+    <div className=' md:flex  md:flex-col items-center hidden md:col-span-2 rounded-lg  '>
 
         <div className='flex flex-col gap-8 sticky p-2  inset-0   items-center justify-around  '>
         <ThemeSwitcher />

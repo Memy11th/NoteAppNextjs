@@ -17,7 +17,7 @@ export default function AuthLayout({children}: Readonly<{children: React.ReactNo
 
             <div className=" col-span-12 md:col-span-10  min-h-screen  rounded-lg">
                 {/*navbar*/}
-                <Navbar />
+                <Navbar  />
             {children}
             {/*footer*/}
             <Footer/>
