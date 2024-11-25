@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 export default function AuthLayout({children}: Readonly<{children: React.ReactNode}>) {
     return (
         <html lang="en">
-        <body className='min-h-screen w-full'>
+        <body className='min-h-screen dark:bg-black w-full'>
             
 
             <div className=" col-span-12 md:col-span-10  min-h-screen  rounded-lg">

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
-      <body className='min-h-screen w-full'>
+      <body className='min-h-screen w-full dark:bg-black'>
         <ThemeProv>
           
         <GridContainer cols={12}>
