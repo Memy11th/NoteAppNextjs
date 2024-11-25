@@ -24,7 +24,6 @@ export default function Home() {
 
     return (
         <div className="min-h-screen p-2">
-            {/* Wrapping the lazy-loaded component with Suspense for loading fallback */}
             <Suspense fallback={<LoadingSpinner />}>
                 <LazyGridContainer cols={12}>
                     {notes.map((note, index) => (

@@ -44,4 +44,19 @@ export const getallNotes = async(token:string)=>{
     return data
 }
 
+// a function to get the user's notes
+
+export const myNotes = async ()=>{
+    const res = await fetch(`https://note-sigma-black.vercel.app/api/v1/notes`,{
+      method:'GET',
+      headers:{
+        'Content-Type': 'application/json',
+        token: `3b8ny__${localStorage.getItem('token')}` || ''
+      }
+    });
+    const data = await res.json();
+    return data;
+  
+  }
+
 
