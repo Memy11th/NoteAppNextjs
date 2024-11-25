@@ -10,7 +10,7 @@ const NoteCard = ({DetailedNote}:{DetailedNote:NoteDetails}) => {
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
     const day = date.getDate().toString().padStart(2, '0');
     return <>
-            <div className=' cursor-pointer col-span-6 md:col-span-4 p-2 shadow-md hover:shadow-lg hover:scale-100 scale-95 duration-300 transition-all  flex flex-col relative mx-auto w-full  bg-black/15 rounded-xl  gap-4 '>
+            <div className=' cursor-pointer col-span-6 md:col-span-4 p-2 shadow-md hover:shadow-lg hover:scale-100 scale-95 duration-200 transition-all  flex flex-col relative mx-auto w-full  bg-black/15 rounded-xl  gap-4 '>
                 <div>
                         <h4 className='font-semibold text-start line-clamp-4 text-sm'>{title}</h4>
                         <p className='text-start line-clamp-4 text-sm'>{content}</p>

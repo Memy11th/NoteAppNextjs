@@ -1,27 +1,37 @@
-'use client'
-import { getallNotes } from "@/Api/Api"
-import GridContainer from "@/components/GridContainer";
+'use client';
+
+import { getallNotes } from "@/Api/Api";
 import NoteCard from "@/components/NoteCard";
-import React from "react";
-import { useEffect } from "react"
+import React, { Suspense, useEffect, useState } from "react";
+import LoadingSpinner from "./loading";
+
+// Lazy loading GridContainer with React.lazy
+const LazyGridContainer = React.lazy(() => import('@/components/GridContainer'));
 
 export default function Home() {
-    const [notes , setNotes] = React.useState([]);
-    const getNotes = async ()=>{
+    const [notes, setNotes] = useState<any[]>([]);
+
+    const getNotes = async () => {
         const token = localStorage.getItem('token') || '';
         const res = await getallNotes(token);
-        console.log(res)
-        setNotes(res?.notes)
-    }
+        console.log(res);
+        setNotes(res?.notes || []);
+    };
 
-    useEffect( () => {
+    useEffect(() => {
         getNotes();
-    }, [] )
-    return <>
+    }, []);
+
+    return (
         <div className="min-h-screen p-2">
-            <GridContainer cols={12}>
-            {notes?.map((note,index)=> <NoteCard key={index} DetailedNote={note} />)}
-            </GridContainer>
+            {/* Wrapping the lazy-loaded component with Suspense for loading fallback */}
+            <Suspense fallback={<LoadingSpinner />}>
+                <LazyGridContainer cols={12}>
+                    {notes.map((note, index) => (
+                        <NoteCard key={index} DetailedNote={note} />
+                    ))}
+                </LazyGridContainer>
+            </Suspense>
         </div>
-    </>
+    );
 }
