@@ -1,5 +1,6 @@
 'use client'
 import { getallNotes } from "@/Api/Api"
+import GridContainer from "@/components/GridContainer";
 import NoteCard from "@/components/NoteCard";
 import React from "react";
 import { useEffect } from "react"
@@ -17,8 +18,10 @@ export default function Home() {
         getNotes();
     }, [] )
     return <>
-        <div className="min-h-screen">
+        <div className="min-h-screen p-2">
+            <GridContainer cols={12}>
             {notes?.map((note,index)=> <NoteCard key={index} DetailedNote={note} />)}
+            </GridContainer>
         </div>
     </>
 }
