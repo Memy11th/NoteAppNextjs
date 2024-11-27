@@ -1,4 +1,4 @@
-import { DeleteFn, deleteNote } from '@/Api/Api';
+import { DeleteFn } from '@/Api/Api';
 import React from 'react'
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteSweep } from "react-icons/md";
@@ -12,11 +12,11 @@ const EdeteSection = ({id}:{id:string}) => {
         console.log(res)
     };
     return <>
-            <div className='flex gap-3 items-center absolute bottom-1 right-2 '>
+            <div className='flex gap-3  items-center absolute bottom-1 right-2 '>
                 
 
-                <Button  Fn={handleDelete} component={<FiEdit className='text-lg text-gray-500 cursor-pointer' />} />
-                <Button  Fn={handleDelete} component={<MdDeleteSweep className='text-lg text-gray-500 cursor-pointer' />} />
+                <Button  Fn={handleDelete} component={<FiEdit className='text-lg text-yellow-500 cursor-pointer' />} />
+                <Button  Fn={handleDelete} component={<MdDeleteSweep className='text-lg text-red-600 cursor-pointer' />} />
 
             </div>
     </>
