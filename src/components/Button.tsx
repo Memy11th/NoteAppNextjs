@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import React from 'react'
+'use client';
+import React from 'react';
 
-const ButtonLink = ({href,name,className}:{href:string,name:string,className:string}) => {
-    return <>
-    <Link href={href} className={className}>
-    {name}
-    </Link>
-    </>
-}
+const Button = ({Fn,component}:{component: React.ReactElement;Fn: VoidFunction;}) => {
+    return (
+        <>
+        {React.cloneElement(component, { onClick: Fn })}
+        </>
+    );
+};
 
-export default ButtonLink
+export default Button;

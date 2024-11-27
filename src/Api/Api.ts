@@ -60,7 +60,7 @@ export const myNotes = async (token:string)=>{
   }
 
 
-export const deleteNote = async (id:string,token:string)=>{
+export const DeleteFn = async (id:string,token:string)=>{
     const res = await fetch(`https://note-sigma-black.vercel.app/api/v1/notes/${id}`,{
       method:'DELETE',
       headers:{
