@@ -72,3 +72,16 @@ export const DeleteFn = async (id:string,token:string)=>{
     return data;
   };
 
+export const UpdateFn = async (id:string,token:string,data:any)=>{
+    const res = await fetch(`https://note-sigma-black.vercel.app/api/v1/notes/${id}`,{
+      method:'PUT',
+      body:JSON.stringify(data),
+      headers:{
+        'Content-Type': 'application/json',
+        token: `3b8ny__${token}`
+      }
+    });
+    const resData = await res.json();
+    return resData;
+  };
+
