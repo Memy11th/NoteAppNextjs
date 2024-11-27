@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import GridContainer from "@/components/GridContainer";
@@ -6,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import ThemeProv from "@/Providers/ThemeProvider";
 import ProgressBar from "@/components/ProgressBar";
 import Footer from "@/components/Footer";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 
 
@@ -19,6 +21,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="en">
       <body className='min-h-screen w-full dark:bg-black'>
+        <AppRouterCacheProvider>
         <ThemeProv>
           
         <GridContainer cols={12}>
@@ -37,6 +40,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
 
         </GridContainer>
         </ThemeProv>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
