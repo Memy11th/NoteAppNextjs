@@ -12,6 +12,8 @@
     "@emotion/cache": "^11.13.5",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^5.16.8",
+    "@mui/material": "^6.1.9",
     "@mui/material-nextjs": "^6.1.9",
     "formik": "^2.4.6",
     "next": "15.0.3",
