@@ -7,6 +7,8 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useFormik } from 'formik';
 import FormInput from './FormComponent';
+import { CreateFn } from '@/Api/Api';
+import NoteAddition from '@/interfaces/NoteAdd';
 
 const style = {
   position: 'absolute',
@@ -35,12 +37,16 @@ const label= [
 ]
 
 export default function ActionButton() {
-
+  const token = localStorage.getItem('token') || '';
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (formikValues)=>{
+  const handleSubmit = async (formikValues: NoteAddition, { resetForm }: { resetForm: () => void })=>{
+      const res = await CreateFn(token,formikValues);
+      console.log(res);
+        handleClose();
+        resetForm();
       
   }
 
@@ -49,7 +55,8 @@ export default function ActionButton() {
       title:'',
       content:''
     },
-    onSubmit: handleSubmit
+    onSubmit: (formikValues , {resetForm})=> handleSubmit(formikValues ,{resetForm} ),
+  
   })
 
 
@@ -77,7 +84,7 @@ export default function ActionButton() {
               className='outline-none border p-2 rounded-md'
               />))}  
 
-              <button type='submit' className='p-2 bg-green-700 text-white rounded-md'>
+              <button type='submit'  className='p-2 bg-green-700 text-white rounded-md'>
                 Add note
               </button>                
             </form>

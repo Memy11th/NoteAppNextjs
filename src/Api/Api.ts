@@ -1,4 +1,5 @@
 import { LoginForm } from "@/app/auth/login/page";
+import NoteAddition from "@/interfaces/NoteAdd";
 import { SignUpForm } from "@/interfaces/SignupForm";
 
 // const Fetchfn = (URL : string,cacheType?:string,cacheTime?:number)=> fetch(URL,{cache: cacheType  ,next:{revalidate:cacheTime}  });
@@ -75,6 +76,19 @@ export const DeleteFn = async (id:string,token:string)=>{
 export const UpdateFn = async (id:string,token:string,data:any)=>{
     const res = await fetch(`https://note-sigma-black.vercel.app/api/v1/notes/${id}`,{
       method:'PUT',
+      body:JSON.stringify(data),
+      headers:{
+        'Content-Type': 'application/json',
+        token: `3b8ny__${token}`
+      }
+    });
+    const resData = await res.json();
+    return resData;
+  };
+
+export const CreateFn = async (token:string,data:NoteAddition)=>{
+    const res = await fetch(`https://note-sigma-black.vercel.app/api/v1/notes`,{
+      method:'POST',
       body:JSON.stringify(data),
       headers:{
         'Content-Type': 'application/json',
