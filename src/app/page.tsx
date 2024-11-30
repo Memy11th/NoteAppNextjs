@@ -9,7 +9,7 @@ import LoadingSpinner from "./loading";
 const LazyGridContainer = React.lazy(() => import('@/components/GridContainer'));
 
 export default function Home() {
-    const [notes, setNotes] = useState<any[]>([]);
+    const [notes, setNotes] = useState<[]>([]);
 
     const getNotes = async () => {
         const token = localStorage.getItem('token') || '';
