@@ -1,7 +1,7 @@
 import { NoteDetails } from '@/interfaces/noteDetails'
 import React from 'react'
-import EdeteSection from './EdeteSection';
 import { usePathname } from 'next/navigation';
+import EditSection from './EdeteSection';
         const NoteCard = ({DetailedNote }:{DetailedNote:NoteDetails}) => {
         const pathname = usePathname();
         const {_id,content,createdAt,title} = DetailedNote
@@ -23,7 +23,7 @@ import { usePathname } from 'next/navigation';
                                         
                                 </div>
                         </div>
-                        <EdeteSection  id={_id}/>
+                        <EditSection title={title} content={content}  id={_id}/>
                 </div>: (<div className='  col-span-6 md:col-span-4 p-2 shadow-md hover:shadow-lg hover:scale-100 scale-95 duration-200 transition-all  flex flex-col relative mx-auto w-full  bg-black/15 rounded-xl  gap-4 '>
                                 <div>
                                         <h4 className='font-semibold text-start line-clamp-4 text-sm'>{title}</h4>
